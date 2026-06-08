@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-success d-flex align-items-center justify-content-center vh-100">
+
+  <div class="form-container p-5 bg-white rounded-4 shadow-lg" style="max-width: 400px; width: 100%;">
+
+    <div class="header text-center mb-4">
+      <p class="fs-4 fw-semibold text-success mb-0">Welcome back,<br>Login into your account</p>
+    </div>
+
+    <form action="./backend/login.php" method="POST">
+      <div class="mb-3">
+        <input type="email" name="email" placeholder="Enter Email" required
+          class="form-control border-success p-2 focus-ring focus-ring-success">
+      </div>
+      <div class="mb-4">
+        <input type="password" name="password" placeholder="Password" required
+          class="form-control border-success p-2 focus-ring focus-ring-success">
+      </div>
+
+      <button type="submit" class="btn btn-success w-100 p-2 fw-bold fs-5">Login</button>
+    </form>
+
+    <p class="text-center mt-4 mb-0 text-secondary">
+      <i>Don't have an account? <a href="./register.html"
+          class="text-success fw-bold text-decoration-none">Register</a></i>
+    </p>
+
+  </div>
+</body>
+
+</html>
