@@ -9,7 +9,7 @@ $password = $_POST['password'];
 
 foreach ($users_data as $user) {
     if ($email === $user['email'] && $password === $user['password']) {
-        $_SESSION['is_logged_in'] = true;
+        $_SESSION['authenticated'] = true;
         $_SESSION['user_email'] = $user['email'];
         $_SESSION['user_name'] = $user['name'];
 
