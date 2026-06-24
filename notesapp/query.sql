@@ -1,3 +1,4 @@
+
 CREATE DATABASE notes_app;
 USE notes_app;
 
@@ -11,14 +12,8 @@ CREATE TABLE users (
 CREATE TABLE notes (
     note_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
-    message TEXT NOT NULL,
+    note TEXT NOT NULL,
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
-
-ALTER TABLE notes 
-RENAME COLUMN message TO note;
-
-ALTER TABLE notes 
-CHANGE message note TEXT NOT NULL;

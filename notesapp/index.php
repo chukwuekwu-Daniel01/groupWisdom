@@ -191,7 +191,7 @@ $viewnotes = getNotes($user_id);
                     <span class="timestamp">
                         <?php echo date('M j, Y', strtotime($row['timestamp'])); ?>
                     </span>
-                    <a href="/backend/deletenote.php?id=<?php echo $row['note_id']; ?>" class="btn-delete">Delete</a>
+                    <a href="/backend/deletenote.php?note_id=<?php echo $row['note_id']; ?>" class="btn-delete">Delete</a>
                 </div>
             </div>
         <?php endwhile; ?>
