@@ -31,6 +31,7 @@ $name = trim($_POST['name']);
 $email = trim($_POST['email']);
 $password = $_POST['password'];
 
+global $connect;
 $check_query = "SELECT email FROM users WHERE email = ?";
 $check_stmt = mysqli_prepare($connect, $check_query);
 mysqli_stmt_bind_param($check_stmt, "s", $email);
@@ -41,7 +42,7 @@ mysqli_stmt_store_result($check_stmt);
 // If the count is greater than 0, the user already exists
 if (mysqli_stmt_num_rows($check_stmt) > 0) {
     $_SESSION['email_error'] = "User already exists. Please login.";
-    header("location: ../../login.php"); // Redirects to login page as requested
+    header("location: ../../login.php"); 
     exit;
 }
 // Close the check statement so we can move on to inserting
@@ -51,13 +52,16 @@ mysqli_stmt_close($check_stmt);
 // 4. Hash Password and Insert New User
 $hash_password = password_hash($password, PASSWORD_DEFAULT);
 
+global $connect;
 $insert_query = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+
 $insert_stmt = mysqli_prepare($connect, $insert_query);
 mysqli_stmt_bind_param($insert_stmt, "sss", $name, $email, $hash_password);
 
 // 5. Final Execution and Session Setup
 if (mysqli_stmt_execute($insert_stmt)) {
     
+global $connect;
     $new_user_id = mysqli_insert_id($connect);
     
 
